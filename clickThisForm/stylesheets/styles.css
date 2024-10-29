@@ -1,0 +1,53 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: rgba(171, 248, 248, 0.788);
+}
+
+.container {
+    text-align: center;
+
+}
+
+.Chooser {
+    margin-bottom: 20px;
+}
+
+.color-option {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+
+.coloringBoxes {
+    display: grid;
+    grid-template-columns: repeat(4, 200px);
+    grid-gap: 10px;
+    font-size: 30pt;
+
+}
+
+.EmptyBox {
+    width: 200px;
+    height: 100px;
+    background: gray;
+    font-size: 20pt;
+    cursor: pointer;
+    align-items: center;
+}
+
+.button {
+    width: 70px;
+    height: 50px;
+    border-radius: 10%;
+    margin: 30px;
+    font-size: 15pt;
+    font-weight: bold;
+}
