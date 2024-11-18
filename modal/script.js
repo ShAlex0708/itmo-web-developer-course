@@ -1,55 +1,66 @@
-// class Modal {
-//     constructor(querySelector) {
-//         this.modal = document.querySelector(querySelector);
-//         this.bttn = document.querySelector(querySelector);
-//         this.span = document.querySelector(querySelector);
-//     }
+class Modal {
 
-//     modOn() {
-//         this.bttn = document.querySelector('#testModal')
-//         this.bttn.addEventListener('click', () => {
-//             this.modal.style.display = "block";
-//             console.log('>>>>');
-            
-//         });
-//     }
+    constructor() {
+        this.modal = document.createElement('div');
+        this.bttn = document.querySelector('#opnModButt');
+        this.modalDisp = this.modalDisp
+    }
 
-//     modOff() {
-//         this.span = document.querySelector('#clsModButt');
-//         this.span.addEventListener('click', () => {
-//             this.modal.style.display = "none";
-//         })
-//     }
+    modCreate() {
+        this.modal.innerHTML = `<div id="testModal" class="Modal">
+                <div class="ModalCont">
+            <span class="Close" id="clsModButt">X</span>
+            <p>Something will be here</p>
+        </div>
+    </div>`
+        document.body.append(this.modal);
+    }
 
-//     // winModOff() {
+    modOn() {
+        this.bttn.addEventListener('click', () => {
+            this.modalDisp = document.querySelector('#testModal');
+            this.modalDisp.style.display = "block"
+        })
+    }
 
-//     //         if (event.target == this.modal) {
-//     //             this.modal.style.display = "none";
-//     //         }
+    modOff() {
+        const span = document.querySelector('#clsModButt')
+        span.addEventListener('click', () => {
+            this.modalDisp = document.querySelector('#testModal');
+            this.modalDisp.style.display = "none"
+        })
+    }
 
-//     // }
-// }
-
-// const test = new Modal()
-
-// test.modOn()
-// test.modOff()
-// // test.winModOff()
-
-let modal = document.querySelector('#testModal');
-let bttn = document.querySelector('#opnModButt');
-var span = document.querySelector('#clsModButt');
-
-bttn.addEventListener('click', function() {
-    modal.style.display = "block";
-});
-
-span.addEventListener('click', function() {
-    modal.style.display = "none";
-});
-
-window.addEventListener('click', function(event) {
-if (event.target == modal) {
-    modal.style.display = "none";
+    winModOff() {
+        window.addEventListener('click', function (event) {
+            this.modalDisp = document.querySelector('#testModal');
+            if (event.target == this.modalDisp)
+                this.modalDisp.style.display = "none";
+        });
+    }
 }
-});
+
+const test = new Modal()
+
+test.modCreate()
+test.modOn()
+test.modOff()
+test.winModOff()
+
+// let modal = document.querySelector('#testModal');
+// let bttn = document.querySelector('#opnModButt');
+// var span = document.querySelector('#clsModButt');
+
+// bttn.addEventListener('click', function() {
+//     modal.style.display = "block";
+// });
+
+// span.addEventListener('click', function() {
+//     modal.style.display = "none";
+// });
+
+// window.addEventListener('click', function(event) {
+// if (event.target == modal) {
+//     modal.style.display = "none";
+// }
+// });
